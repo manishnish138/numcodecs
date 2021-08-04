@@ -29,6 +29,11 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install submodules
+        run: |
+          git submodule init
+          git submodule update
+
       - uses: docker/setup-qemu-action@v1
         if: ${{ matrix.arch == 'aarch64' }}
         name: Set up QEMU
