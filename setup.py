@@ -31,12 +31,12 @@ if have_cflags:
 elif os.name == 'posix':
     if disable_sse2:
         base_compile_args.append('-mno-sse2')
-    #elif have_sse2:
-    #    base_compile_args.append('-msse2')
+    elif have_sse2:
+        base_compile_args.append('-msse2')
     #if disable_avx2:
     #    base_compile_args.append('-mno-avx2')
-    #elif have_avx2:
-    #    base_compile_args.append('-mavx2')
+    elif have_avx2:
+        base_compile_args.append('-mavx2')
 # On macOS, force libc++ in case the system tries to use `stdlibc++`.
 # The latter is often absent from modern macOS systems.
 if sys.platform == 'darwin':
